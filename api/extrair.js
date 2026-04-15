@@ -29,11 +29,13 @@ Regras de extração:
 7. Para Município e UF, extraia da descrição do imóvel. Se não informado, use "-".
 8. Matrícula: extraia o número exato. Se não informado, use "-".
 9. Não duplique entradas: se a mesma matrícula aparecer em mais de um lugar do documento com as mesmas informações, inclua apenas uma vez.
-10. Ofício/Cartório: extraia o número do ofício ou cartório de registro de imóveis mencionado junto à matrícula. Exemplos: "2º Ofício", "3º Cartório", "1º CRI". Use sempre o formato "Nº" seguido do tipo, por exemplo: "2º Ofício", "3º Cartório". Se não houver menção ao ofício ou cartório, use "1º Ofício".
+10. Ofício/Cartório: extraia o número do ofício ou cartório de registro de imóveis mencionado junto à matrícula. Use sempre o formato com dois dígitos seguido de "º", por exemplo: "01º", "02º", "06º". Se não houver menção ao ofício ou cartório, use "01º".
 
 Retorne SOMENTE um JSON válido, sem markdown, sem texto adicional, no formato:
-{"imoveis": [{"tipo": "Garantia ou Busca", "matricula": "...", "area": número ou "-", "unidade": "ha ou m² ou -", "municipio": "...", "uf": "XX", "tipo_imovel": "...", "oficio": "..."}]}`;
+{"imoveis": [{"tipo": "Garantia ou Busca", "matricula": "...", "area": número ou "-", "unidade": "ha ou m² ou -", "municipio": "...", "uf": "XX", "tipo_imovel": "...", "oficio": "..."}]}
 
+IMPORTANTE: Se não houver nenhum imóvel, retorne exatamente isso e nada mais:
+{"imoveis": [{"tipo": "-", "matricula": "-", "area": "-", "unidade": "-", "municipio": "-", "uf": "-", "tipo_imovel": "-", "oficio": "-"}]}
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
