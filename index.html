@@ -7,7 +7,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
       font-family: Arial, sans-serif;
       background: #f4f6f9;
@@ -17,7 +16,6 @@
       justify-content: center;
       padding: 2rem;
     }
-
     .card {
       background: #fff;
       border-radius: 16px;
@@ -26,14 +24,12 @@
       width: 100%;
       max-width: 620px;
     }
-
     .logo {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 1.5rem;
     }
-
     .logo-icon {
       width: 36px;
       height: 36px;
@@ -47,34 +43,10 @@
       font-size: 14px;
       flex-shrink: 0;
     }
-
-    .logo-text {
-      font-size: 16px;
-      font-weight: 600;
-      color: #1a3c6e;
-      line-height: 1.2;
-    }
-
-    .logo-sub {
-      font-size: 12px;
-      color: #666;
-      font-weight: 400;
-    }
-
-    h1 {
-      font-size: 20px;
-      color: #1a1a1a;
-      margin-bottom: 0.4rem;
-      font-weight: 600;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: #666;
-      margin-bottom: 1.75rem;
-      line-height: 1.5;
-    }
-
+    .logo-text { font-size: 16px; font-weight: 600; color: #1a3c6e; line-height: 1.2; }
+    .logo-sub { font-size: 12px; color: #666; font-weight: 400; }
+    h1 { font-size: 20px; color: #1a1a1a; margin-bottom: 0.4rem; font-weight: 600; }
+    .subtitle { font-size: 13px; color: #666; margin-bottom: 1.75rem; line-height: 1.5; }
     .drop-zone {
       border: 2px dashed #c5cfe0;
       border-radius: 12px;
@@ -84,35 +56,12 @@
       transition: all 0.2s;
       background: #fafbfd;
     }
-
-    .drop-zone:hover,
-    .drop-zone.dragover {
-      border-color: #1a3c6e;
-      background: #eef2f9;
-    }
-
-    .drop-icon {
-      font-size: 36px;
-      margin-bottom: 10px;
-      color: #1a3c6e;
-    }
-
-    .drop-title {
-      font-size: 15px;
-      color: #333;
-      font-weight: 500;
-      margin-bottom: 4px;
-    }
-
-    .drop-hint {
-      font-size: 12px;
-      color: #999;
-    }
-
+    .drop-zone:hover, .drop-zone.dragover { border-color: #1a3c6e; background: #eef2f9; }
+    .drop-icon { font-size: 36px; margin-bottom: 10px; color: #1a3c6e; }
+    .drop-title { font-size: 15px; color: #333; font-weight: 500; margin-bottom: 4px; }
+    .drop-hint { font-size: 12px; color: #999; }
     input[type="file"] { display: none; }
-
     .file-list { margin-top: 1rem; }
-
     .file-item {
       display: flex;
       align-items: center;
@@ -124,27 +73,10 @@
       font-size: 13px;
       color: #333;
     }
-
     .file-icon { font-size: 16px; flex-shrink: 0; }
-
-    .file-name {
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .file-remove {
-      cursor: pointer;
-      color: #c0392b;
-      font-size: 18px;
-      line-height: 1;
-      padding: 0 2px;
-      flex-shrink: 0;
-    }
-
+    .file-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-remove { cursor: pointer; color: #c0392b; font-size: 18px; line-height: 1; padding: 0 2px; flex-shrink: 0; }
     .file-remove:hover { color: #922b21; }
-
     .btn {
       display: block;
       width: 100%;
@@ -157,55 +89,15 @@
       transition: all 0.2s;
       margin-top: 1.25rem;
     }
-
-    .btn-primary {
-      background: #1a3c6e;
-      color: #fff;
-    }
-
+    .btn-primary { background: #1a3c6e; color: #fff; }
     .btn-primary:hover:not(:disabled) { background: #15325c; }
-
-    .btn-primary:disabled {
-      background: #8fa8c8;
-      cursor: not-allowed;
-    }
-
-    .btn-secondary {
-      background: #f0f4fa;
-      color: #1a3c6e;
-      border: 1px solid #c5cfe0;
-      margin-top: 0.5rem;
-    }
-
+    .btn-primary:disabled { background: #8fa8c8; cursor: not-allowed; }
+    .btn-secondary { background: #f0f4fa; color: #1a3c6e; border: 1px solid #c5cfe0; margin-top: 0.5rem; }
     .btn-secondary:hover { background: #e0e8f4; }
-
     .progress-section { margin-top: 1.5rem; }
-
-    .section-label {
-      font-size: 11px;
-      color: #999;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.6rem;
-    }
-
-    .progress-bar-wrap {
-      height: 5px;
-      background: #e8edf5;
-      border-radius: 3px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-
-    .progress-bar {
-      height: 100%;
-      background: #1a3c6e;
-      border-radius: 3px;
-      transition: width 0.4s ease;
-      width: 0%;
-    }
-
+    .section-label { font-size: 11px; color: #999; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+    .progress-bar-wrap { height: 5px; background: #e8edf5; border-radius: 3px; overflow: hidden; margin-bottom: 1rem; }
+    .progress-bar { height: 100%; background: #1a3c6e; border-radius: 3px; transition: width 0.4s ease; width: 0%; }
     .status-item {
       display: flex;
       align-items: center;
@@ -215,14 +107,11 @@
       font-size: 13px;
       margin-bottom: 5px;
     }
-
     .status-item.processing { background: #eaf3fb; color: #185fa5; }
-    .status-item.done       { background: #eafaf3; color: #1a7a4a; }
-    .status-item.error      { background: #fdf0f0; color: #c0392b; }
-
+    .status-item.done { background: #eafaf3; color: #1a7a4a; }
+    .status-item.error { background: #fdf0f0; color: #c0392b; }
     .status-name { flex: 1; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: 8px; }
-    .status-msg  { font-size: 12px; flex-shrink: 0; }
-
+    .status-msg { font-size: 12px; flex-shrink: 0; }
     .spinner {
       display: inline-block;
       width: 12px;
@@ -234,9 +123,7 @@
       margin-right: 6px;
       flex-shrink: 0;
     }
-
     @keyframes spin { to { transform: rotate(360deg); } }
-
     .result-box {
       margin-top: 1.25rem;
       padding: 14px 16px;
@@ -247,9 +134,7 @@
       color: #1a7a4a;
       display: none;
     }
-
     .result-box strong { display: block; font-size: 15px; margin-bottom: 4px; }
-
     .error-box {
       margin-top: 1rem;
       padding: 12px 14px;
@@ -264,7 +149,6 @@
 </head>
 <body>
 <div class="card">
-
   <div class="logo">
     <div class="logo-icon">BB</div>
     <div>
@@ -272,10 +156,8 @@
       <div class="logo-sub">Extrator de Imóveis — Teasers BB</div>
     </div>
   </div>
-
   <h1>Extração de imóveis</h1>
   <p class="subtitle">Faça o upload dos teasers em PDF. O sistema identifica automaticamente todos os imóveis (garantias e buscas patrimoniais) e gera um arquivo Excel pronto para uso.</p>
-
   <div id="upload-section">
     <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
       <div class="drop-icon">&#8679;</div>
@@ -288,7 +170,6 @@
       Extrair imóveis e baixar Excel
     </button>
   </div>
-
   <div class="progress-section" id="progress-section" style="display:none">
     <div class="section-label">Progresso</div>
     <div class="progress-bar-wrap">
@@ -296,23 +177,19 @@
     </div>
     <div id="status-list"></div>
   </div>
-
   <div class="result-box" id="result-box">
     <strong>&#10003; Excel gerado com sucesso!</strong>
     O download foi iniciado automaticamente. Verifique sua pasta de Downloads.
     <button class="btn btn-secondary" onclick="resetAll()" style="margin-top:0.75rem">Processar novos teasers</button>
   </div>
-
   <div class="error-box" id="error-box"></div>
-
 </div>
 
 <script>
   let files = [];
-
-  const dropZone  = document.getElementById('drop-zone');
-  const fileInput = document.getElementById('file-input');
-  const fileList  = document.getElementById('file-list');
+  const dropZone   = document.getElementById('drop-zone');
+  const fileInput  = document.getElementById('file-input');
+  const fileList   = document.getElementById('file-list');
   const processBtn = document.getElementById('process-btn');
 
   dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
@@ -322,9 +199,7 @@
 
   function addFiles(newFiles) {
     for (const f of newFiles) {
-      if (f.type === 'application/pdf' && !files.find(x => x.name === f.name)) {
-        files.push(f);
-      }
+      if (f.type === 'application/pdf' && !files.find(x => x.name === f.name)) files.push(f);
     }
     renderFileList();
   }
@@ -387,7 +262,6 @@
 
       try {
         const b64 = await toBase64(f);
-
         const response = await fetch('/api/extrair', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -407,6 +281,7 @@
             'Caso':        caseName,
             'Tipo':        im.tipo        || '-',
             'Matrícula':   im.matricula   || '-',
+            'Ofício':      im.oficio      || '1º Ofício',
             'Área':        im.area === '-' ? '-' : im.area,
             'Unidade':     im.unidade     || '-',
             'Município':   im.municipio   || '-',
@@ -416,34 +291,30 @@
         });
 
         const semImovel = imoveis.length === 1 && imoveis[0].matricula === '-';
-        setStatus(f.name, 'done',
-          semImovel ? 'Sem imóveis' : imoveis.length + ' imóvel(is)',
-          false);
+        setStatus(f.name, 'done', semImovel ? 'Sem imóveis' : imoveis.length + ' imóvel(is)', false);
 
       } catch (e) {
         setStatus(f.name, 'error', 'Erro: ' + e.message, false);
         allRows.push({
-          'Caso': caseName, 'Tipo': 'ERRO', 'Matrícula': '-',
+          'Caso': caseName, 'Tipo': 'ERRO', 'Matrícula': '-', 'Ofício': '-',
           'Área': '-', 'Unidade': '-', 'Município': '-', 'UF': '-', 'Tipo Imóvel': '-'
         });
       }
     }
 
     bar.style.width = '100%';
-
     if (allRows.length > 0) {
       gerarExcel(allRows);
       document.getElementById('result-box').style.display = 'block';
     }
-
     processBtn.disabled = false;
   }
 
   function gerarExcel(rows) {
     const ws = XLSX.utils.json_to_sheet(rows);
     ws['!cols'] = [
-      { wch: 38 }, { wch: 12 }, { wch: 15 }, { wch: 10 },
-      { wch: 10 }, { wch: 28 }, { wch: 6  }, { wch: 22 }
+      { wch: 38 }, { wch: 12 }, { wch: 15 }, { wch: 16 },
+      { wch: 10 }, { wch: 10 }, { wch: 28 }, { wch: 6 }, { wch: 22 }
     ];
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'Imóveis');
