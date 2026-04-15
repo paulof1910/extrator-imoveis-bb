@@ -76,8 +76,14 @@ Retorne SOMENTE um JSON válido, sem markdown, sem texto adicional, neste format
 
     const data = await response.json();
     const text = data.content.map(c => c.text || '').join('');
-    const clean = text.replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(clean);
+    const clean = text
+      .replace(/```json|```/g, '')
+      .replace(/[\x00-\x1F\x7F]/g, ' ')
+      .trim();
+    const firstBrace = clean.indexOf('{');
+    const lastBrace = clean.lastIndexOf('}');
+    const jsonStr = clean.substring(firstBrace, lastBrace + 1);
+    const parsed = JSON.parse(jsonStr);
 
     return res.status(200).json(parsed);
 
