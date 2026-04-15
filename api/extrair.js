@@ -43,7 +43,7 @@ Retorne SOMENTE um JSON válido, sem markdown, sem texto adicional, no formato:
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-opus-4-6',
+        model: 'claude-opus-4-5',
         max_tokens: 2000,
         system: systemPrompt,
         messages: [
